@@ -326,8 +326,7 @@ export function createDirectorySearch(args: { sdk: ServerSDK; base: () => string
   let current = 0
 
   const scoped = (value: string) => {
-    const base = args.base()
-    if (!base) return
+    const base = args.base() || "/"
     const raw = normalizePickerDrive(value)
     if (!raw) return { directory: trimPickerPath(base), path: "" }
     const home = args.home()
